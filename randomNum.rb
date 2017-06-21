@@ -1,30 +1,37 @@
 class RandomTest
 
   def main
-    # Initialize variable
-    numArray = []
+    # Exceptions handling
+    begin
+      # Initialize variable
+      numArray = []
 
-    # Generate random number to the array
-    numArray = generateNumArray(numArray)
+      # Generate random number to the array
+      numArray = generateNumArray(numArray)
 
-    # Display Array's content
-    printArray(numArray)
+      # Display Array's content
+      printArray(numArray)
 
-    # Break
-    puts "\n\n"
+      # Break
+      puts "\n\n"
 
-    # Sort the number array
-    numArray = sortArray(numArray)
+      # Sort the number array
+      numArray = sortArray(numArray)
 
-    printArray(numArray)
+      printArray(numArray)
 
-    # Verify if target exist
-    if (toSearch(numArray))
-      puts "Target found!"
-    else
-      puts "Target not found!"
-    end #END if
+      # Verify if target exist
+      if (toSearch(numArray))
+        puts "Target found!"
+      else
+        puts "Target not found!"
+      end #END if
 
+    # Storing any exception in var theError
+    rescue theError
+      #Simply output the message
+      puts "#{theError.class}: #{theError.message}"
+    end #END of exception handling begin-rescue
   end #END main()
 
   def generateNumArray(inArray)
